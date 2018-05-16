@@ -1,0 +1,108 @@
+<nav class="navbar navbar-expand-md navbar-dark">
+  <div class="container">
+
+    <!-- Company name shown on mobile -->
+    <a class="navbar-brand" href="#">Cafe<span>Pro</span></a>
+
+    <!-- Mobile menu toggle -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Main navigation items -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mr-auto justify-content-end">
+        <!--li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['/home']">Home</a>
+        </li-->
+
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['/adminhome']">Admin Home</a>
+        </li>
+
+        <!--li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Examples &amp; Pages</a>
+                    <div class="dropdown-menu navbar-dark bg-primary">
+                          <a class="dropdown-item" href="examples.html">Style Examples</a>
+                          <a class="dropdown-item" href="three-column.html">Three Column</a>
+                          <a class="dropdown-item" href="one-column.html">One column / no sidebar</a>
+                          <a class="dropdown-item"  href="text.html">Text / left sidebar</a>
+                    </div>
+        </li-->
+
+
+        <!--li class="nav-item" [routerLinkActive]="['active']" (click)="registerrestaurants()">
+          <a class="nav-link" (click)="registerrestaurants()">Register restaurant</a>
+        </li-->
+
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']" (click)="onLogoutClick()">Logout</a>
+        </li>
+
+        <!--li class="nav-item" *ngIf="authService.loggedIn()">
+          <p class="nav-link">{{authService.getUserName()}}</p>
+        </li-->
+      </ul>
+
+    </div>
+
+
+
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-2">
+      <h1 class="my-4">Admin</h1>
+      <div class="list-group">
+
+        <a class="list-group-item"  [routerLink]="['/adminhome']" (click)="approverestaurants()">Restaurants</a>
+
+        <a class="list-group-item" [routerLink]="['/adminhome']" (click)="registerrestaurants()">Register Restaurants</a>
+
+        <a class="list-group-item" [routerLink]="['/adminhome']" >Users</a>
+      </div>
+    </div>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-10">
+
+
+      <div class="card mt-4" *ngIf="!getregisterres()">
+        <app-tobeapprovedrestaurants></app-tobeapprovedrestaurants>
+
+      </div>
+      <div class="card mt-4" *ngIf="getregisterres()">
+
+        <app-adminrestaurantregister></app-adminrestaurantregister>
+      </div>
+      <!-- /.card -->
+
+      <div class="card card-outline-secondary my-4">
+
+        <div class="card-body">
+
+        </div>
+      </div>
+
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+
+</div>
+<app-footer></app-footer>
+<!-- /.container -->
+
+<!-- Footer -->
+
+
+<!-- Bootstrap core JavaScript -->
+<!--script src="vendor/jquery/jquery.min.js"></script-->
+<!--script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script-->

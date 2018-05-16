@@ -1,0 +1,88 @@
+
+
+<app-navbar></app-navbar>
+
+
+
+<!-- Jumbtron / Slider -->
+<div class="jumbotron-wrap jumbotron-image mb-0">
+  <div class="container">
+      <div id="mainCarousel" class="carousel slide" data-ride="carousel">
+
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <div class="jumbotron">
+                      <h1 class="text-center">Laughter is brighest where food is best </h1>
+                      <p class="lead text-center">Find the best restaurants, cafes and bars</p>
+                      <p class="lead text-center" *ngIf="!authService.loggedIn()">
+                          <!--a class="btn btn-primary btn-lg" href="#" role="button"><i class="fa fa-info"></i> &nbsp; Learn more</a-->
+                          <a class="btn btn-secondary btn-lg" [routerLink]="['/login']" role="button"><!--i class="fa fa-gbp"></i--> &nbsp;Login</a>
+
+                      </p>
+                    <form class="form-inline my-2 my-lg-0">
+                      <label class="col-sm-4 col-md-4 col-xs-4"></label>
+                      <select class="form-control mr-sm-2" name="searchcategory" [(ngModel)]="searchcategory">
+                        <option value="Name">Restaurant Name</option>
+                        <option value="City">City</option>
+                        <option value="Cuicine">Cuisine</option>
+                      </select>
+                      <input class="form-control mr-sm-2" type="text"  placeholder="Search" aria-label="Search" name="keyword" [(ngModel)]="keyword"/>
+                      <button class="btn btn-secondary my-2 my-sm-0" (click)="restaurantSearch()">Search</button>
+                    </form>
+
+
+                  </div>
+              </div>
+          </div>
+
+          <!--a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+          </a-->
+          <!--a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a-->
+      </div>
+  </div>
+
+</div>
+
+
+
+<!--div *ngFor="let i of [1,2,3,4]">
+  <app-restaurantcard ></app-restaurantcard>
+  <br>
+</div-->
+<div class="card-container">
+  <div class="container">
+
+
+    <div class="padded-box row">
+
+          <!--app-restaurantcard *ngFor="let i of [1,2,3,4]" class="col-md-4 mb-4"></app-restaurantcard-->
+          <app-restaurantcard *ngFor="let i of this.lis" [Restaurant]="i" class="col-md-4 mb-4"></app-restaurantcard>
+
+
+      <!--div class="tab-pane active" id="studio" *ngFor="let i of this.lis">
+        <div class="col-sm-4">
+          <app-restaurantcard [Restaurant]="i" ></app-restaurantcard>
+        </div>
+      </div-->
+
+        <br>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+        <!--script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script-->
+        <!--script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script-->
+        <!--script-- src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script-->
+
+
+<app-footer></app-footer>

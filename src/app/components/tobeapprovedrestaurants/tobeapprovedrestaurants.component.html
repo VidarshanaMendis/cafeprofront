@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Restaurant Details
+    <small>To be approved</small>
+  </h1>
+  <hr class="colorgraph">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Name</th>
+      <th scope="col">City</th>
+      <th scope="col">Address</th>
+      <th scope="col">Website</th>
+      <th scope="col">Telephone</th>
+      <th scope="col">Opening hours</th>
+      <th scope="col">Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let i of restaurants; let t = index">
+      <th scope="row">{{t+1}}</th>
+      <td>{{i.restname}}</td>
+      <td>{{i.city}}</td>
+      <td>{{i.address}}</td>
+      <td>{{i.website}}</td>
+      <td>{{i.telephone}}</td>
+      <td>{{i.openinghours}}</td>
+      <td><input type="submit" value="Remove" class="btn btn-danger" (click)="deleteRestaurant(restaurants[t]._id)">
+        <input type="submit" value="Approve" class="btn btn-success" (click)="approveRestaurant(restaurants[t]._id)"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

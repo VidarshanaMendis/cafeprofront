@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-3">
+      <h1 class="my-4">{{restaurant.restname}}</h1>
+      <h5>{{restaurant.address}}</h5>
+      <h5>Tel: {{restaurant.telephone}}</h5>
+      <h5>{{restaurant.openinghours}}</h5>
+      <a href="{{restaurant.website}}">{{restaurant.website}}</a>
+      <!--div class="list-group">
+        <a href="#" class="list-group-item active">Category 1</a>
+        <a href="#" class="list-group-item">Category 2</a>
+        <a href="#" class="list-group-item">Category 3</a>
+      </div-->
+    </div>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+
+      <div class="card mt-4">
+        <img class="card-img-top img-fluid" src="../../../assets/image/pizza2.jpg" alt="">
+        <div class="card-body">
+          <h3 class="card-title">{{restaurant.restname}}</h3>
+          <h4>{{restaurant.city}}</h4>
+          <p class="card-text"></p>
+          <!--span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span-->
+          <span class="badge badge-success"><h5>{{restaurant.rating}}</h5></span>
+
+        </div>
+      </div>
+      <!-- /.card -->
+
+      <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+          Reviews
+        </div>
+        <div class="card-body">
+          <div *ngFor="let i of this.users">
+            <p>{{this.restaurant.comments[i].comment}}</p>
+            <small class="text-muted">Posted by {{i}}</small>
+            <span class="badge badge-success"><small>{{this.restaurant.comments[i].rate}}</small></span>
+            <hr>
+          </div>
+
+          <a [routerLink]="['/login']" class="btn btn-success" (click)="leaveReviewAlert()" *ngIf="!authservice.loggedIn()">Leave a Review</a>
+          <!comment box-->
+          <div class="form-group" id="commentdiv" *ngIf="authservice.loggedIn()" >
+            <label for="InputMessage">Comment</label>
+            <textarea class="form-control" id="InputMessage" rows="3"></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary" (click)="saveComment()">Submit</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+
+</div>
+<app-footer></app-footer>
+<!-- /.container -->
+
+<!-- Footer -->
+
+
+<!-- Bootstrap core JavaScript -->
+<!--script src="vendor/jquery/jquery.min.js"></script-->
+<!--script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script-->

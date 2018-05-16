@@ -1,0 +1,59 @@
+
+<nav class="navbar navbar-expand-md navbar-dark">
+  <div class="container">
+
+    <!-- Company name shown on mobile -->
+    <a class="navbar-brand" href="#">Cafe<span>Pro</span></a>
+
+    <!-- Mobile menu toggle -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Main navigation items -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav mr-auto justify-content-end">
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['/home']">Home</a>
+        </li>
+
+        <!--li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Examples &amp; Pages</a>
+                    <div class="dropdown-menu navbar-dark bg-primary">
+                          <a class="dropdown-item" href="examples.html">Style Examples</a>
+                          <a class="dropdown-item" href="three-column.html">Three Column</a>
+                          <a class="dropdown-item" href="one-column.html">One column / no sidebar</a>
+                          <a class="dropdown-item"  href="text.html">Text / left sidebar</a>
+                    </div>
+        </li-->
+
+
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" (click)="onRegisterRestaurant()">Register restaurant</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['/register']">Register</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!authService.loggedIn()"  [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['/login']">Login</a>
+        </li>
+
+        <li class="nav-item" *ngIf="authService.loggedIn()">
+          <a class="nav-link" [routerLink]="['/home']" (click)="onLogoutClick()">Logout</a>
+        </li>
+
+        <li class="nav-item" [routerLink]="['/profile']">
+          <a class="nav-link" [routerLink]="['/profile']">{{authService.getUserName()}}</a>
+          <!--p class="nav-link">{{authService.getUserName()}}</p-->
+        </li>
+      </ul>
+
+    </div>
+
+
+
+  </div>
+</nav>
+

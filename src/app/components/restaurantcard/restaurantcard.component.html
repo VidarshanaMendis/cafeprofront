@@ -1,0 +1,17 @@
+
+<div >
+  <div class="card text-center">
+    <img class="card-img-top" src="{{Restaurant.imagelink}}" alt="Card image cap">
+    <div class="card-body">
+      <a [routerLink]="['/comments']"><h4>{{Restaurant.restname}}</h4></a>
+      <span class="badge badge-success"><h5>4.1</h5></span>
+      <h5 >{{Restaurant.city}}</h5>
+      <p class="card-text mb-auto"><label>Address:   </label>{{Restaurant.address}}</p>
+      <p class="card-text mb-auto"><label>Telephone:   </label>{{Restaurant.telephone}}</p>
+      <!--a href="#" class="btn btn-primary">Left link</a-->
+      <a [routerLink]="['/comments',Restaurant._id]" >View comments</a>
+
+    </div>
+  </div>
+</div>
+
